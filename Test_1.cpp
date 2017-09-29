@@ -17,8 +17,14 @@ int main() {
   spi.frequency(1000000);                  //setting the frequency to 1MHz
   pot(0x00);                               //initializing the potentiometer wiper to have zero resistance
   while(1) {
-    if (pir == 1) {                        //checking if there is a presence
+    if (pir == 1) {                        //checking if the presence is true
       for (int i = 0x00; i <= 0xFF; i++) { //the resistance is increased in steps of 1 starting from 0 upto 255(0xFF)
+        pot(i);                            //call the potentiometer function
+        wait(0.01);                        //wait for 0.01s
+      }
+    }
+    if (pir == 0) {                        //checking if the presence is false
+      for (int i = 0xFF; i >= 0x00; i--) { //the resistance is decreased in steps of 1 starting from 255(0xFF) upto 0
         pot(i);                            //call the potentiometer function
         wait(0.01);                        //wait for 0.01s
       }
