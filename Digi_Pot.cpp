@@ -13,12 +13,14 @@ int main()
       spi.write(cmd);
       spi.write(i);
       cs = 1;
+      wait(0.01);
     }
     for (int i = 0xFF; i>=0x00; i--) {
       cs = 0;
       spi.write(cmd);
       spi.write(i);
       cs = 1;
+      wait(0.01);
     }
   }
 }
