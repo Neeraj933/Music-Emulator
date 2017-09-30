@@ -1,4 +1,4 @@
-# Music-Emulator
+# Music Emulator System
 
 #### A smart music system  
 
